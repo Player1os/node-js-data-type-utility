@@ -9,5 +9,5 @@ export const validationSchema = (keys: string[]) => {
 	return keys.reduce((accumulator, requiredKey) => {
 		accumulator[requiredKey] = Joi.any().required()
 		return accumulator
-	}, {})
+	}, {}) as Joi.SchemaMap
 }
