@@ -1,6 +1,6 @@
 {
   "name": "@player1os/data-type-utility",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A base library from which other libraries can be derived",
   "private": false,
   "main": "index.js",
