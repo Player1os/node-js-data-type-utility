@@ -6,6 +6,7 @@ import * as bigIntegerKey from '.../src/key/big_integer'
 import * as integerKey from '.../src/key/integer'
 import * as nonNegativeBigIntegerNumber from '.../src/number/non_negative_big_integer'
 import * as nonNegativeIntegerNumber from '.../src/number/non_negative_integer'
+import * as utcTimestampNumberDataType from '.../src/number/utc_timestamp'
 import * as labelStringValueObject from '.../src/object/label_string_value'
 import * as requiredKeysObject from '.../src/object/required_keys'
 import * as parsedValidationError from '.../src/parsed_validation_error'
@@ -27,6 +28,7 @@ export {
 	integerKey,
 	nonNegativeBigIntegerNumber,
 	nonNegativeIntegerNumber,
+	utcTimestampNumberDataType,
 	labelStringValueObject,
 	requiredKeysObject,
 	parsedValidationError,
