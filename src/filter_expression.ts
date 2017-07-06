@@ -3,12 +3,17 @@ import * as Joi from 'joi'
 import * as lodash from 'lodash'
 
 /**
+ * An interface for filter expression values.
+ */
+export interface Interface {
+	[fieldName: string]: Joi.BooleanSchema | Joi.NumberSchema | Joi.StringSchema | Joi.ObjectSchema | Joi.DateSchema,
+}
+
+/**
  * Generates a validation schema for a filter expression based on the supplied validation schema map.
  * @param filterExpressionItemSchemaMap An object containing a key => value mapping for each field's validation schema.
  */
-export const validationSchema = (filterExpressionItemSchemaMap: {
-	[fieldName: string]: Joi.BooleanSchema | Joi.NumberSchema | Joi.StringSchema | Joi.ObjectSchema | Joi.DateSchema,
-}) => {
+export const validationSchema = (filterExpressionItemSchemaMap: Interface) => {
 	// Define the validation schema for a single query item.
 	let filterExpressionItemSchema = Joi.object(
 		lodash.reduce(filterExpressionItemSchemaMap, (map, fieldValidationSchema, fieldName: string) => {
