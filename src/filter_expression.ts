@@ -3,9 +3,9 @@ import * as Joi from 'joi'
 import * as lodash from 'lodash'
 
 /**
- * An interface for filter expression values.
+ * An interface for filter expression schema map.
  */
-export interface Interface {
+export interface ISchemaMap {
 	[fieldName: string]: Joi.BooleanSchema | Joi.NumberSchema | Joi.StringSchema | Joi.ObjectSchema | Joi.DateSchema,
 }
 
@@ -13,7 +13,7 @@ export interface Interface {
  * Generates a validation schema for a filter expression based on the supplied validation schema map.
  * @param filterExpressionItemSchemaMap An object containing a key => value mapping for each field's validation schema.
  */
-export const validationSchema = (filterExpressionItemSchemaMap: Interface) => {
+export const validationSchema = (filterExpressionItemSchemaMap: ISchemaMap) => {
 	// Define the validation schema for a single query item.
 	let filterExpressionItemSchema = Joi.object(
 		lodash.reduce(filterExpressionItemSchemaMap, (map, fieldValidationSchema, fieldName: string) => {
