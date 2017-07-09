@@ -10,14 +10,15 @@ export const validationSchema = (fieldErrorTypesMap: {
 	[field: string]: string[],
 }) => {
 	return Joi.object(lodash.reduce(fieldErrorTypesMap, (accumulator, fieldErrorTypes, fieldName: string) => {
-		accumulator[fieldName] = Joi.array().items(fieldErrorTypes.map((fieldErrorType) => {
-			return Joi.object({
-				value: Joi.any(),
-				type: Joi.string().valid(fieldErrorType),
-				message: Joi.string(),
-			}).required()
-		}))
-
-		return accumulator
+		return {
+			...accumulator,
+			[fieldName]: Joi.array().items(fieldErrorTypes.map((fieldErrorType) => {
+				return Joi.object({
+					value: Joi.any(),
+					type: Joi.string().valid(fieldErrorType),
+					message: Joi.string(),
+				}).required()
+			})).required(),
+		}
 	}, {}))
 }
