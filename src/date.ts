@@ -26,17 +26,20 @@ export const createWithoutTimeComponent = (value: Date = new Date()) => {
  * Convert the given date to an equivalent UTC DateTime String.
  * @param value The date object to be converted.
  */
-export const toUtcDateTimeString = (value: Date = new Date()) => {
+export const toUtcDateTimeString = (value: Date = new Date(), options = {
+	dateDelimiter: '/',
+	timeDelimiter: ':',
+}) => {
 	return [
 		[
 			lodash.padStart(value.getUTCFullYear().toString(), 4, '0'),
 			lodash.padStart((value.getUTCMonth() + 1).toString(), 2, '0'),
 			lodash.padStart(value.getUTCDate().toString(), 2, '0'),
-		].join('/'), [
+		].join(options.dateDelimiter), [
 			lodash.padStart(value.getUTCHours().toString(), 2, '0'),
 			lodash.padStart(value.getUTCMinutes().toString(), 2, '0'),
 			lodash.padStart(value.getUTCSeconds().toString(), 2, '0'),
-		].join(':'),
+		].join(options.timeDelimiter),
 		lodash.padStart(value.getUTCMilliseconds().toString(), 3, '0'),
 	].join('_')
 }
