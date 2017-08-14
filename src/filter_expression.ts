@@ -6,7 +6,7 @@ import * as lodash from 'lodash'
  * An interface for filter expression schema map.
  */
 export interface ISchemaMap {
-	[fieldName: string]: Joi.BooleanSchema | Joi.NumberSchema | Joi.StringSchema | Joi.ObjectSchema | Joi.DateSchema,
+	[fieldName: string]: Joi.BooleanSchema | Joi.NumberSchema | Joi.StringSchema | Joi.ObjectSchema | Joi.DateSchema | Joi.FunctionSchema,
 }
 
 /**
