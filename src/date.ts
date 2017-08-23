@@ -7,11 +7,11 @@ import * as lodash from 'lodash'
  * @param value The date object to offset from.
  */
 export const createOffset = (value: Date, years = 0, months = 0, days = 0) => {
-	return new Date(
-		value.getFullYear() + years,
-		value.getMonth() + months,
-		value.getDate() + days,
-	)
+	const date = new Date()
+	date.setUTCFullYear(value.getUTCFullYear() + years)
+	date.setUTCMonth(value.getUTCMonth() + months)
+	date.setUTCDate(value.getUTCDate() + days)
+	return date
 }
 
 /**
@@ -19,7 +19,12 @@ export const createOffset = (value: Date, years = 0, months = 0, days = 0) => {
  * @param value The date object to remove the time component from.
  */
 export const createWithoutTimeComponent = (value = new Date()) => {
-	return new Date(value.getFullYear(), value.getMonth(), value.getDate())
+	const date = new Date(value.valueOf())
+	date.setUTCHours(0)
+	date.setUTCMinutes(0)
+	date.setUTCSeconds(0)
+	date.setUTCMilliseconds(0)
+	return date
 }
 
 /**
