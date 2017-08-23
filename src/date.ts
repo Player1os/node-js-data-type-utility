@@ -8,9 +8,9 @@ import * as lodash from 'lodash'
  */
 export const createOffset = (value: Date, years = 0, months = 0, days = 0) => {
 	return new Date(
-		value.getUTCFullYear() + years,
-		value.getUTCMonth() + months,
-		value.getUTCDate() + days,
+		value.getFullYear() + years,
+		value.getMonth() + months,
+		value.getDate() + days,
 	)
 }
 
@@ -18,15 +18,15 @@ export const createOffset = (value: Date, years = 0, months = 0, days = 0) => {
  * Create a new date that's missing the time component of the given date. The created date is set to 00:00:00 UTC time.
  * @param value The date object to remove the time component from.
  */
-export const createWithoutTimeComponent = (value: Date = new Date()) => {
-	return new Date(value.getUTCFullYear(), value.getUTCMonth(), value.getUTCDate())
+export const createWithoutTimeComponent = (value = new Date()) => {
+	return new Date(value.getFullYear(), value.getMonth(), value.getDate())
 }
 
 /**
  * Convert the given date to an equivalent UTC DateTime String.
  * @param value The date object to be converted.
  */
-export const toUtcDateTimeString = (value: Date = new Date(), options = {
+export const toUtcDateTimeString = (value = new Date(), options = {
 	dateDelimiter: '/',
 	timeDelimiter: ':',
 }) => {
@@ -48,7 +48,7 @@ export const toUtcDateTimeString = (value: Date = new Date(), options = {
  * Convert the given date to an equivalent UTC Timestamp Number.
  * @param value The date object to be converted.
  */
-export const toUtcTimestampNumber = (value: Date = new Date()) => {
+export const toUtcTimestampNumber = (value = new Date()) => {
 	return value.getTime() / 1000
 }
 
