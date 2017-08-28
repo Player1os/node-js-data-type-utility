@@ -6,11 +6,11 @@ import * as lodash from 'lodash'
  * Creates a new date offset from the given date by the given ammount of years, months and days.
  * @param value The date object to offset from.
  */
-export const createOffset = (value: Date, years = 0, months = 0, days = 0) => {
-	const date = new Date()
-	date.setUTCFullYear(value.getUTCFullYear() + years)
-	date.setUTCMonth(value.getUTCMonth() + months)
-	date.setUTCDate(value.getUTCDate() + days)
+export const createOffset = (value: Date = new Date(), years = 0, months = 0, days = 0) => {
+	const date = new Date(value.valueOf())
+	date.setUTCFullYear(date.getUTCFullYear() + years)
+	date.setUTCMonth(date.getUTCMonth() + months)
+	date.setUTCDate(date.getUTCDate() + days)
 	return date
 }
 
