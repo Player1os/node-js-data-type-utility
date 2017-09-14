@@ -9,6 +9,7 @@ import * as nonNegativeIntegerNumber from '.../src/number/non_negative_integer'
 import * as utcTimestampNumber from '.../src/number/utc_timestamp'
 import * as keysObject from '.../src/object/keys'
 import * as labelStringValueObject from '.../src/object/label_string_value'
+import * as stringsValueObject from '.../src/object/strings_value'
 import * as parsedValidationError from '.../src/parsed_validation_error'
 import * as string from '.../src/string'
 import * as descriptionString from '.../src/string/description'
@@ -31,6 +32,7 @@ export {
 	utcTimestampNumber,
 	keysObject,
 	labelStringValueObject,
+	stringsValueObject,
 	parsedValidationError,
 	string,
 	descriptionString,
