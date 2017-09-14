@@ -58,6 +58,30 @@ export const toUtcTimestampNumber = (value = new Date()) => {
 }
 
 /**
+ * Convert the given date to an equivalent UTC MinuteCount Number.
+ * @param value The date object to be converted.
+ */
+export const toUtcMinuteCountNumber = (value = new Date()) => {
+	return toUtcTimestampNumber(value) / 60
+}
+
+/**
+ * Convert the given date to an equivalent UTC HourCount Number.
+ * @param value The date object to be converted.
+ */
+export const toUtcHourCountNumber = (value = new Date()) => {
+	return toUtcMinuteCountNumber(value) / 60
+}
+
+/**
+ * Convert the given date to an equivalent UTC DayCount Number.
+ * @param value The date object to be converted.
+ */
+export const toUtcDayCountNumber = (value = new Date()) => {
+	return toUtcHourCountNumber(value) / 24
+}
+
+/**
  * A validation schema for date values.
  */
 export const validationSchema = Joi.date()
