@@ -25,4 +25,4 @@ export const getSingleValue = (value: Type, key: string) => {
 	return lodash.isArray(result)
 		? lodash.first(result)
 		: result
-}
+} // tslint:disable-line:ter-indent
