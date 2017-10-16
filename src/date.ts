@@ -28,8 +28,38 @@ export const createWithoutTimeComponent = (value = new Date()) => {
 }
 
 /**
- * Convert the given UTC DateTime String to a date object.
+ * Convert the given time key number to a date object.
  * @param value The date object to be converted.
+ */
+export const fromTimeKey = (value: number) => {
+	const dateText = value.toString()
+
+	const date = new Date()
+	date.setUTCFullYear(parseInt(dateText.substr(0, 4), 10))
+	date.setUTCMonth(parseInt(dateText.substr(4, 2), 10))
+	date.setUTCDate(parseInt(dateText.substr(6, 2), 10))
+	date.setUTCHours(parseInt(dateText.substr(8, 2), 10))
+
+	return date
+}
+
+/**
+ * Convert the given date object to a time key number.
+ * @param value The date object to be converted.
+ */
+export const toTimeKey = (value = new Date()) => {
+	return parseInt([
+		lodash.padStart(value.getUTCFullYear().toString(), 4, '0'),
+		lodash.padStart((value.getUTCMonth() + 1).toString(), 2, '0'),
+		lodash.padStart(value.getUTCDate().toString(), 2, '0'),
+		lodash.padStart(value.getUTCHours().toString(), 2, '0'),
+	].join(''), 10)
+}
+
+/**
+ * Convert the given UTC DateTime string to a date object.
+ * @param value The UTC DateTime string to be converted.
+ * @param options Determines the delimiters to be used.
  */
 export const fromUtcDateTimeString = (value: string, options = {
 	dateDelimiter: '/',
@@ -57,22 +87,23 @@ export const fromUtcDateTimeString = (value: string, options = {
 
 	const result = new Date()
 	result.setUTCFullYear(parseInt(yearStr, 10))
-	result.setUTCMonth(parseInt(monthStr, 10))
+	result.setUTCMonth(parseInt(monthStr, 10) - 1)
 	result.setUTCDate(parseInt(dateStr, 10))
-	result.setUTCFullYear(parseInt(hourStr, 10))
-	result.setUTCFullYear(parseInt(minuteStr, 10))
-	result.setUTCFullYear(parseInt(secondStr, 10))
-	result.setUTCFullYear(parseInt(millisecondsStr, 10))
+	result.setUTCHours(parseInt(hourStr, 10))
+	result.setUTCMinutes(parseInt(minuteStr, 10))
+	result.setUTCSeconds(parseInt(secondStr, 10))
+	result.setUTCMilliseconds(parseInt(millisecondsStr, 10))
 
 	if (isNaN(result.valueOf())) {
 		throw new Error(`Invalid UTC DateTime String value "${value}"`)
 	}
 	return result
-}
+} // tslint:disable-line:ter-indent
 
 /**
- * Convert the given date object to an equivalent UTC DateTime String.
+ * Convert the given date object to an equivalent UTC DateTime string.
  * @param value The date object to be converted.
+ * @param options Determines the delimiters to be used.
  */
 export const toUtcDateTimeString = (value = new Date(), options = {
 	dateDelimiter: '/',
@@ -90,7 +121,7 @@ export const toUtcDateTimeString = (value = new Date(), options = {
 		].join(options.timeDelimiter),
 		lodash.padStart(value.getUTCMilliseconds().toString(), 3, '0'),
 	].join('_')
-}
+} // tslint:disable-line:ter-indent
 
 /**
  * Convert the given date to an equivalent UTC Timestamp Number.
