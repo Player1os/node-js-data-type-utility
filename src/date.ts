@@ -39,7 +39,9 @@ export const fromTimeKey = (value: number) => {
 	date.setUTCMonth(parseInt(dateText.substr(4, 2), 10))
 	date.setUTCDate(parseInt(dateText.substr(6, 2), 10))
 	date.setUTCHours(parseInt(dateText.substr(8, 2), 10))
-
+	date.setUTCMinutes(0)
+	date.setUTCSeconds(0)
+	date.setUTCMilliseconds(0)
 	return date
 }
 
