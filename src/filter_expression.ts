@@ -25,7 +25,7 @@ export const validationSchema = (filterExpressionItemSchemaMap: ISchemaMap) => {
 
 			// Return the augumented map.
 			return map
-		}, {}))
+		}, {} as { [key: string]: Joi.AlternativesSchema }))
 
 	// Define an exclusive relationships between each field key and its negation.
 	Object.keys(filterExpressionItemSchemaMap).forEach((fieldName) => {
