@@ -1,6 +1,6 @@
 {
   "name": "@player1os/data-type-utility",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A collection of functions and utilities to manipulate common data types",
   "private": false,
   "main": "dist/index.js",
