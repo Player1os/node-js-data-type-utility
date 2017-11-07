@@ -1,4 +1,4 @@
-// Load app modules.
+// Load local modules.
 import * as boolean from '.../src/boolean'
 import * as date from '.../src/date'
 import * as filterExpression from '.../src/filter_expression'

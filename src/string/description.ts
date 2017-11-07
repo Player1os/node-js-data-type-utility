@@ -1,4 +1,4 @@
-// Load app modules.
+// Load local modules.
 import * as stringDataType from '.../src/string'
 
 // Load npm modules.

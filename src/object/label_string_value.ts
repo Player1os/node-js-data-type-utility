@@ -1,4 +1,4 @@
-// Load app modules.
+// Load local modules.
 import * as labelStringDataType from '.../src/string/label'
 
 // Load npm modules.
