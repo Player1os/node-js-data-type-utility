@@ -102,7 +102,6 @@ import * as Joi from 'joi'
 // 		+ '\\s*'
 // 	+ '$',
 // )
-// 'Must be a valid ip address'
 
 /**
  * A validation schema for ip address string values.

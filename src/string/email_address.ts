@@ -13,7 +13,6 @@ import * as Joi from 'joi'
 // 	+ '$',
 // 	'i',
 // )
-// 'Must be a valid email address'
 
 /**
  * A validation schema for email address string values.

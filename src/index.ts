@@ -12,6 +12,7 @@ import * as labelStringValueObject from '.../src/object/label_string_value'
 import * as stringsValueObject from '.../src/object/strings_value'
 import * as parsedValidationError from '.../src/parsed_validation_error'
 import * as string from '.../src/string'
+import * as base64String from '.../src/string/base64'
 import * as descriptionString from '.../src/string/description'
 import * as emailAddressString from '.../src/string/email_address'
 import * as hashString from '.../src/string/hash'
@@ -35,6 +36,7 @@ export {
 	stringsValueObject,
 	parsedValidationError,
 	string,
+	base64String,
 	descriptionString,
 	emailAddressString,
 	hashString,
