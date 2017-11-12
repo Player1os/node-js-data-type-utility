@@ -1,5 +1,4 @@
 // Load npm modules.
-import * as Joi from 'joi'
 import * as lodash from 'lodash'
 
 /**
@@ -110,6 +109,7 @@ export const fromUtcDateTimeString = (value: string, options = {
 export const toUtcDateTimeString = (value = new Date(), options = {
 	dateDelimiter: '/',
 	timeDelimiter: ':',
+	portionDelimiter: '_',
 }) => {
 	return [
 		[
@@ -122,7 +122,7 @@ export const toUtcDateTimeString = (value = new Date(), options = {
 			lodash.padStart(value.getUTCSeconds().toString(), 2, '0'),
 		].join(options.timeDelimiter),
 		lodash.padStart(value.getUTCMilliseconds().toString(), 3, '0'),
-	].join('_')
+	].join(options.portionDelimiter)
 } // tslint:disable-line:ter-indent
 
 /**
@@ -156,8 +156,3 @@ export const toUtcHourCountNumber = (value = new Date()) => {
 export const toUtcDayCountNumber = (value = new Date()) => {
 	return toUtcHourCountNumber(value) / 24
 }
-
-/**
- * A validation schema for date values.
- */
-export const validationSchema = Joi.date()

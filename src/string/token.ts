@@ -1,10 +1,12 @@
-// Load npm modules.
-import * as Joi from 'joi'
+/**
+ * A string that can be used in a regexp for matching invalid token characters.
+ */
+export const invalidCharacterRegExpString = '[^a-z0-9\\-]'
 
 /**
  * A reg exp that matches all invalid characters in an any string value.
  */
-export const invalidCharactersRegExp = /[^a-z0-9\-]/g
+export const invalidCharactersRegExp = new RegExp(invalidCharacterRegExpString, 'g')
 
 /**
  * Convert a string value to a token string value.
@@ -13,8 +15,3 @@ export const invalidCharactersRegExp = /[^a-z0-9\-]/g
 export const fromString = (value: string) => {
 	return value.toLowerCase().replace(invalidCharactersRegExp, '-')
 }
-
-/**
- * A validation schema for token string values.
- */
-export const validationSchema = Joi.string().regex(/^[a-z0-9\-]+$/, 'TokenString').max(256)
